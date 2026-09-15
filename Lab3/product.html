@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaPods — Hear Everything</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b0f;
+      color: #ffffff;
+    }
+
+    nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8%;
+      border-bottom: 1px solid #202027;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #9d7cff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .nav-btn {
+      background: white;
+      color: black !important;
+      padding: 11px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+    }
+
+    .hero {
+      min-height: 650px;
+      padding: 90px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: #b69cff;
+      border: 1px solid #4b3d70;
+      background: #181321;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 7vw, 92px);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      margin-bottom: 30px;
+    }
+
+    h1 span {
+      color: #9d7cff;
+    }
+
+    .hero p {
+      color: #a7a7b0;
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 500px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .primary {
+      background: #9d7cff;
+      color: white;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    .secondary {
+      color: white;
+      text-decoration: none;
+      padding: 16px 20px;
+    }
+
+    .product {
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #a68aff 0%, #6040a0 35%, #18131f 68%, transparent 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .case {
+      width: 230px;
+      height: 270px;
+      background: linear-gradient(145deg, #f7f7f7, #aaa);
+      border-radius: 70px;
+      box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.7),
+        inset -10px -10px 20px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .case::before {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 70px;
+      background: #dcdcdc;
+      border-radius: 50%;
+      top: 55px;
+      left: 20px;
+      box-shadow: inset 0 5px 8px rgba(0,0,0,0.12);
+    }
+
+    .earbud {
+      position: absolute;
+      width: 45px;
+      height: 100px;
+      background: white;
+      border-radius: 30px;
+      top: 40px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    .earbud.left {
+      left: 55px;
+      transform: rotate(-18deg);
+    }
+
+    .earbud.right {
+      right: 55px;
+      transform: rotate(18deg);
+    }
+
+    .earbud::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 45px;
+      background: white;
+      bottom: -25px;
+      left: 15px;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .features {
+      padding: 90px 8%;
+      background: #111116;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .features > p {
+      color: #888892;
+      margin-bottom: 50px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #18181f;
+      border: 1px solid #272731;
+      padding: 35px;
+      border-radius: 20px;
+      text-align: left;
+    }
+
+    .icon {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #8d8d96;
+      line-height: 1.6;
+    }
+
+    .price-section {
+      padding: 100px 8%;
+      text-align: center;
+    }
+
+    .price-section h2 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 55px;
+      font-weight: bold;
+      color: #9d7cff;
+      margin: 25px 0;
+    }
+
+    .price span {
+      color: #777;
+      font-size: 18px;
+      font-weight: normal;
+    }
+
+    .price-section p {
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      border-top: 1px solid #222;
+      padding: 30px 8%;
+      display: flex;
+      justify-content: space-between;
+      color: #666;
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .product {
+        width: 320px;
+        height: 320px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">Nova<span>Pods</span></div>
+
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#technology">Technology</a></li>
+      <li><a href="#buy">Pricing</a></li>
+    </ul>
+
+    <a href="#buy" class="nav-btn">Buy Now</a>
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-text">
+      <div class="tag">NEW · NOVAPODS X1</div>
+
+      <h1>
+        Hear<br>
+        <span>Everything.</span>
+      </h1>
+
+      <p>
+        Premium wireless earbuds engineered for immersive sound,
+        intelligent noise cancellation and all-day comfort.
+      </p>
+
+      <div class="buttons">
+        <a href="#buy" class="primary">Get NovaPods →</a>
+        <a href="#features" class="secondary">Explore features</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="case">
+        <div class="earbud left"></div>
+        <div class="earbud right"></div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="features" id="features">
+
+    <h2>Built for your world.</h2>
+
+    <p>Everything you need. Nothing you don't.</p>
+
+    <div class="feature-grid">
+
+      <div class="card">
+        <div class="icon">◉</div>
+        <h3>Adaptive ANC</h3>
+        <p>
+          Intelligent noise cancellation automatically adjusts
+          to your surroundings so you can stay focused.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">♫</div>
+        <h3>Studio Sound</h3>
+        <p>
+          Custom-tuned drivers deliver deep bass, crisp vocals
+          and detailed highs across every genre.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>36-Hour Battery</h3>
+        <p>
+          Keep your music going all day with up to 36 hours
+          of total battery life with the charging case.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="price-section" id="buy">
+
+    <h2>Ready to hear more?</h2>
+
+    <div class="price">
+      $149 <span>USD</span>
+    </div>
+
+    <p>Free shipping · 2-year warranty · 30-day returns</p>
+
+    <a href="#" class="primary">Order NovaPods X1 →</a>
+
+  </section>
+
+
+  <footer>
+    <div>© 2026 NovaPods</div>
+    <div>Designed for sound. Built for life.</div>
+  </footer>
+
+</body>
+</html>
