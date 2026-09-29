@@ -16,8 +16,8 @@ app.get("/api/products", (req, res) => {
 });
 
 app.get("api/products/:id", (req, res) =>{
-    const {id} = req.params;
-    const product = product.find((item) => item.id == id);
+    const { id } = req.params;
+    const product = product.find((item) => item.id === Number(id));
 
     if(!product){
         return res.status({msg: `product not found with id:${id}`})
@@ -29,4 +29,4 @@ app.get("api/products/:id", (req, res) =>{
 
 app.listen(3000, () => {
     console.log("Server is running at http://localhost:3000")
-    });
+});

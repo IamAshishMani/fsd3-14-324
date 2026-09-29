@@ -17,4 +17,5 @@ app.get("/about", (req, res) => {
 app.get("/enquiry", (req, res) => {
     res.sendFile(path.join(dirname), "public", "enquiry.html");
 })
+
 app.listen(port, () => console.log("prg is running at", { port }));
