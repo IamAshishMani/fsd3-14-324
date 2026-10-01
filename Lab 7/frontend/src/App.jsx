@@ -1,27 +1,39 @@
-const b1 = {
-  picUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-OW4no9ICxvl_ojXpOTZPByg-E6LtDpfxtJ8RdXsUUw&s=10",
-  title : "Let's Use React",
-  price : 1000,
-  quantity :1,
-  rating : 5.0
+const b1={
+  picUrl:"https://m.media-amazon.com/images/I/811V9+pG1JL._AC_UY218_.jpg",
+  bname:"Dr Kent Eng",
+  price:1200,
+  quantity:1,
+  rating:5.0
 };
-function Book() {
+const b2={
+  picUrl:"https://m.media-amazon.com/images/I/81AQ6tZKPiL._AC_UY218_.jpg",
+  bname:"Dr Kent Hindi",
+  price:1500,
+  quantity:1,
+  rating:4.0
+};
+
+
+function Book(props){
+  const{ rating, bname, price, quantity, picUrl }=props.book;
   return(
     <div>
-      <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-OW4no9ICxvl_ojXpOTZPByg-E6LtDpfxtJ8RdXsUUw&s=10"/>
-      <h1>Let's Use React</h1>
-      <h1>Price: 1000</h1>
-      <h1>Quantity: 1</h1>
-      <h1>Rating 5.0</h1>
+      <img src={picUrl} alt={bname} />
+      <h2>welcome to the house of books</h2>
+      <h3>price:{price}</h3>
+      <h4>quantity:{quantity} </h4>
+      <h6>Rating : {rating}</h6>
     </div>
-  )
+  );
 }
-export default function App() {
-    return (
-        <div>
-            <h1>Hello World</h1>
-            <Book/>
-            <b1/>
-        </div>
-    );
+export default function App(){
+  return (
+    <>
+    <div className="container">
+      <Book book={b1}/>
+      <h1>Hello world</h1>
+      <Book book={b2}/>
+    </div>
+    </>
+  );
 }
