@@ -13,7 +13,6 @@ const b2={
   rating:4.0
 };
 
-
 function Book(props){
   const{ rating, bname, price, quantity, picUrl }=props.book;
   return(
